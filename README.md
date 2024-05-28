@@ -42,8 +42,8 @@ This project aims to generate a song in the style of System of a Down using AI t
 
 3. **Run Notebooks**
 
-### Fine-tune Riffusion
-[Open in Colab](https://colab.research.google.com/drive/1lWqp8TiV969vTRCxl-4jLEjVcQw3TTmh#scrollTo=NaQ3Jytoqyk5){:target="_blank"}
+#### Fine-tune Riffusion
+[Open in Colab](https://colab.research.google.com/drive/1lWqp8TiV969vTRCxl-4jLEjVcQw3TTmh#scrollTo=NaQ3Jytoqyk5)
 
 4. **Generate Music**
     ```bash
