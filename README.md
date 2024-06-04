@@ -35,22 +35,15 @@ The band's album Toxicity was used for both the vocal and instrumental training 
 
 
 - **Instrumental Model**: While looking around for fine-tuneable music generation AIs I initially wanted to finetune a Riffusion model, this turned out to be a complete failure: after trying to set up a notebook from scratch I spent multiple days trying to find the correct versions of Python and Tensor packs before having to admit that I would not have the time to research all the different things I needed and acquire enough knowledge on AI training to actually understand what I would need to do for it to work. Luckily I found a [MusicGen Finetuner](https://replicate.com/sakemin/musicgen-fine-tuner) on replicate. This find allowed me to fine-tune a music continuation model on System of a Down so I could use the music track split from the Suno prompt as input and receive a track with matching bpm and harmony.
+- [Link to my own fine-tuned SOAD model on replicate](https://replicate.com/tabstle/soad_music_gen/examples) - [Open in Colab](https://colab.research.google.com/drive/1lWqp8TiV969vTRCxl-4jLEjVcQw3TTmh#scrollTo=l2sNBQg-pywR)
 
 <div align="center">
-  <a href="https://replicate.com/tabstle/soad_music_gen/examples" class="hover-zoom">
+  <a href="https://replicate.com/tabstle/soad_music_gen/examples">
     <img src="Doku/Screenshots/replicate.png" alt="fine-tuned-musicgen" width="600">
   </a>
 </div>
 
-<style>
-.hover-zoom img {
-  transition: transform 0.2s;
-}
 
-.hover-zoom:hover img {
-  transform: scale(1.05);
-}
-</style>
 
 
 
