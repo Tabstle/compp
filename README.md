@@ -3,7 +3,7 @@
 
 ## Project Overview
 
-The main goal of this project was to generate a song where the lyrics, derived from text conversations, are sung in the distinctive style of System of a Down. This process involved several stages, from exploring existing AI tools to finetuning models to suit the specific music style of the band.
+The main goal of this project was to generate a song where the lyrics, derived from text conversations, are sung in the distinctive style of System of a Down. This process involved several stages, from exploring existing AI tools and generating songs with lyrics as a prompt to finetuning models to suit the specific music style of the band.
 
 ### 1. Exploring Existing AI Tools
 
@@ -11,23 +11,23 @@ Initially, I researched various AI tools to understand what was available for ta
 
 ### 2. Generating the Initial Music
 
-To overcome these challenges, I opted to use Suno for generating music. This tool allowed me to convert text conversations directly into music, ensuring that the vocals matched the speed, harmony, and accentuation of the instrumental. The generated song included both vocals and instrumental parts. However, other than belonging to the Metal genre, they had nothing to do with the iconic sound of System of a Down. In order to achieve this I would have to tweak both the instrumental and the vocals.
+To overcome these challenges, I opted to use [Suno](https://suno.com/) for generating music. This tool allowed me to convert text conversations directly into music, ensuring that the vocals matched the speed, harmony, and accentuation of the instrumental. The generated song included both vocals and instrumental parts. However, other than belonging to the Metal genre, they had nothing to do with the iconic sound of System of a Down. In order to achieve this I would have to tweak both the instrumental and the vocals.
 
 ### 3. Separating Vocals and Instrumental 
 
-In order to use all the open-source tools I found during my research, I had to split the vocals and intrumental from the generated song. I utilized another AI tool called UVR5 to separate the generated song into its vocal and instrumental components. This allowed me to create the input for the models I finetuned.
+In order to use all the open-source tools I found during my research, I had to split the vocals and intrumental from the generated song and the songs used for training data. I utilized another AI tool called [UVR5](https://github.com/Anjok07/ultimatevocalremovergui/releases/tag/v5.6) to separate the songs into their vocal and instrumental components. This allowed me to create the input and the datasets for the models I finetuned in a another step.
 
 ### 4. Fine-Tuning AI Models
 
-With the separated components in hand, I fine-tuned two separate AI models:
-- **Vocal Models**: Customized to replicate the vocal style of Serj Tankian, the lead singer of the Band.
-- **Instrumental Model**: Tailored to match the instrumental style of the band.
+The band's album Toxicity was used for both the vocal and instrumental training data. The complete album was run through UVR5 to recieve both the training data for the music generation AI and the inference voice model:
 
+- **Vocal Model**: The open source tool [Applio](https://applio.org/) was used to train two different voice Models of Serj Tankian, the lead singer of the band: One for singing and one for screaming. Looking into voice models of many other metal singers during my research I noticed many of them sounded a bit distorted: The sound was sort of ruptured in the harmonics — the high and low frequencies that accompany the main tone. I figured the issue comes from training the model on the very different vocal qualities of both screaming and singing present in many metal songs, so I decided to separate them for my project. 50 min of music was extracted into two mp3 files of 16min length each to use as training data for the different models. The two finetuned models work fine for TTS, however excel at inference. I was especially surprised at the quality of screaming the trained model produced with inference.
 
+- **Instrumental Model**: While looking around for finetuneable music generation AIs I initally wanted to finetune a Riffusion model, this turned out to be a complete failure: after trying to set up a notebook from scratch I spent multiple days trying to find the correct versions of Python and Tensor packs before having to admit that I would not have the time to research all the different things I needed and aquire enough knowledge on AI training to actually understand what I would need to do for it to work. Luckily I found a [MusicGen Finetuner](https://replicate.com/sakemin/musicgen-fine-tuner) on replicate. This find allowed me to fine tune a music continuation model on System of a Down so I could use the music track split from the Suno promt as input and recieve a track with matching bpm and harmony.
 
 ### 5. Reconstructing the Final Song
 
-Finally, I replaced the initially generated content with the fine-tuned vocals and instrumental parts. Using audio editing tools, I stitched these components back together to form a cohesive song snippet.
+The only thing left to do now was to put the different parts back together with [Reaper](https://www.reaper.fm/), a muic editing software. The instrumental track was placed on one track and for the vocals I generated the vocal track with both models and then stitched together the screaming parts and singing parts from the correct outputs.
 
 ## Conclusion
 ## Project Structure
@@ -55,28 +55,6 @@ Finally, I replaced the initially generated content with the fine-tuned vocals a
 2. **Generate Vocals**: Used Suno to generate vocals based on the text and then split it into screaming and singing using UVR5.
 3. **Combine Tracks**: Edited the generated vocals and instrumental together in Reaper to match the beat.
 
-## Usage
-1. **Clone the Repository**
-    ```bash
-    git clone https://github.com/yourusername/AI-Music-Generation.git
-    cd AI-Music-Generation
-    ```
-
-2. **Download Datasets**
-    ```bash
-    python scripts/download_datasets.py
-    ```
-
-3. **Run Notebooks**
-
-#### Fine-tune Riffusion
-[Open in Colab](https://colab.research.google.com/drive/1lWqp8TiV969vTRCxl-4jLEjVcQw3TTmh#scrollTo=NaQ3Jytoqyk5)
-
-4. **Generate Music**
-    ```bash
-    python scripts/generate_music.py
-    ```
-
 ## Results
 The generated music tracks can be found in the `results/generated_music/` directory.
 
@@ -85,3 +63,4 @@ The generated music tracks can be found in the `results/generated_music/` direct
 - **Applio AI**
 - **MusicGen by Meta**
 - **Suno**
+- **Reaper**
