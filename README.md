@@ -1,9 +1,11 @@
 # COMPP FS24 - AI Music Generation from text messages in the style of System of a Down
 
-
 ## Project Overview
 
 The main goal of this project was to generate a song where the lyrics, derived from text conversations, are sung in the distinctive style of System of a Down. This process involved several stages, from exploring existing AI tools and generating songs with lyrics as a prompt to finetuning models to suit the specific music style of the band.
+
+
+This video by Lubalin called "Internet Drama - part 1" served as inspiration for the project.
 
 ### 1. Exploring Existing AI Tools
 
