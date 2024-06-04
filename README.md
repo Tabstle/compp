@@ -14,21 +14,28 @@ Initially, I researched various AI tools to understand what was available for ta
 
 To overcome these challenges, I opted to use [Suno](https://suno.com/) for generating music. This tool allowed me to convert text conversations directly into music, ensuring that the vocals matched the speed, harmony, and accentuation of the instrumental. The generated song included both vocals and instrumental parts. However, other than belonging to the Metal genre, they had nothing to do with the iconic sound of System of a Down. In order to achieve this I would have to tweak both the instrumental and the vocals.
 
+Generated audio:
+<audio controls>
+  <source src="Suno/Internet Drama.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
 ### 3. Separating Vocals and Instrumental 
 
-In order to use all the open-source tools I found during my research, I had to split the vocals and intrumental from the generated song and the songs used for training data. I utilized another AI tool called [UVR5](https://github.com/Anjok07/ultimatevocalremovergui/releases/tag/v5.6) to separate the songs into their vocal and instrumental components. This allowed me to create the input and the datasets for the models I finetuned in a another step.
+In order to use all the open-source tools I found during my research, I had to split the vocals and instrumental from the generated song and the songs used for training data. I utilized another AI tool called [UVR5](https://github.com/Anjok07/ultimatevocalremovergui/releases/tag/v5.6) to separate the songs into their vocal and instrumental components. This allowed me to create the input and the datasets for the models I finetuned in another step.
 
 ### 4. Fine-Tuning AI Models
 
-The band's album Toxicity was used for both the vocal and instrumental training data. The complete album was run through UVR5 to recieve both the training data for the music generation AI and the inference voice model:
+The band's album Toxicity was used for both the vocal and instrumental training data. The complete album was run through UVR5 to receive both the training data for the music generation AI and the inference voice model:
 
-- **Vocal Model**: The open source tool [Applio](https://applio.org/) was used to train two different voice Models of Serj Tankian, the lead singer of the band: One for singing and one for screaming. Looking into voice models of many other metal singers during my research I noticed many of them sounded a bit distorted: The sound was sort of ruptured in the harmonics — the high and low frequencies that accompany the main tone. I figured the issue comes from training the model on the very different vocal qualities of both screaming and singing present in many metal songs, so I decided to separate them for my project. 50 min of music was extracted into two mp3 files of 16min length each to use as training data for the different models. The two finetuned models work fine for TTS, however excel at inference. I was especially surprised at the quality of screaming the trained model produced with inference.
+- **Vocal Model**: The open-source tool [Applio](https://applio.org/) was used to train two different voice Models of Serj Tankian, the lead singer of the band: One for singing and one for screaming. Looking into voice models of many other metal singers during my research I noticed many of them sounded a bit distorted: The sound was sort of ruptured in the harmonics — the high and low frequencies that accompany the main tone. I figured the issue came from training the model on the very different vocal qualities of both screaming and singing present in many metal songs, so I decided to separate them for my project. 50 min of music was extracted into two mp3 files of 16min lengths each to use as training data for the different models. The two fine-tuned models work fine for TTS, however excel at inference. I was especially surprised at the quality of screaming the trained model produced with inference.
 
-- **Instrumental Model**: While looking around for finetuneable music generation AIs I initally wanted to finetune a Riffusion model, this turned out to be a complete failure: after trying to set up a notebook from scratch I spent multiple days trying to find the correct versions of Python and Tensor packs before having to admit that I would not have the time to research all the different things I needed and aquire enough knowledge on AI training to actually understand what I would need to do for it to work. Luckily I found a [MusicGen Finetuner](https://replicate.com/sakemin/musicgen-fine-tuner) on replicate. This find allowed me to fine tune a music continuation model on System of a Down so I could use the music track split from the Suno promt as input and recieve a track with matching bpm and harmony.
+- **Instrumental Model**: While looking around for fine-tuneable music generation AIs I initially wanted to finetune a Riffusion model, this turned out to be a complete failure: after trying to set up a notebook from scratch I spent multiple days trying to find the correct versions of Python and Tensor packs before having to admit that I would not have the time to research all the different things I needed and acquire enough knowledge on AI training to actually understand what I would need to do for it to work. Luckily I found a [MusicGen Finetuner](https://replicate.com/sakemin/musicgen-fine-tuner) on replicate. This find allowed me to fine-tune a music continuation model on System of a Down so I could use the music track split from the Suno prompt as input and receive a track with matching bpm and harmony.
 
 ### 5. Reconstructing the Final Song
 
-The only thing left to do now was to put the different parts back together with [Reaper](https://www.reaper.fm/), a muic editing software. The instrumental track was placed on one track and for the vocals I generated the vocal track with both models and then stitched together the screaming parts and singing parts from the correct outputs.
+The only thing left to do now was to put the different parts back together with [Reaper](https://www.reaper.fm/), a music editing software. The instrumental track was placed on one track and for the vocals I generated the vocal track with both models and then stitched together the screaming parts and singing parts from the correct outputs.
 
 ## Conclusion
 ## Project Structure
