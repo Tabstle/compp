@@ -47,6 +47,9 @@ The band's album Toxicity was used for both the vocal and instrumental training 
 
 The only thing left to do now was to put the different parts back together with [Reaper](https://www.reaper.fm/), a music editing software. The instrumental track was placed on one track and for the vocals I generated the vocal track with both models and then stitched together the screaming parts and singing parts from the correct outputs.
 
+## Results
+The generated music tracks can be found in the `Results/` directory.
+
 ## Conclusion
 ## Project Structure
 - **Doku/**: Contains documentation
@@ -73,8 +76,6 @@ The only thing left to do now was to put the different parts back together with 
 2. **Generate Vocals**: Used voice track from Suno to generate vocals with the fine-tuned Applio voice models.
 3. **Combine Tracks**: Edited the generated vocals and instrumental together in Reaper to match the beat.
 
-## Results
-The generated music tracks can be found in the `results/generated_music/` directory.
 
 ## Acknowledgements
 - **UVR5 Ultimate Vocal Remover AI**
