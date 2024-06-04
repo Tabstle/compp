@@ -51,8 +51,8 @@ The only thing left to do now was to put the different parts back together with 
 3. **Fine-tune MusicGen**: Fine-tuned MusicGen by Meta for generating instrumental music.
 
 ### Music Generation
-1. **Generate Base Track**: Generated a base track using the fine-tuned MusicGen model.
-2. **Generate Vocals**: Used Suno to generate vocals based on the text and then split it into screaming and singing using UVR5.
+1. **Generate Base Track**: Generated a base track using Suno.
+2. **Generate Vocals**: Used voice track from Suno to generate vocals with the fine tuned Applio voice models.
 3. **Combine Tracks**: Edited the generated vocals and instrumental together in Reaper to match the beat.
 
 ## Results
