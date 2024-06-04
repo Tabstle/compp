@@ -53,7 +53,9 @@ The generated music tracks can be found in the `Results/` directory.
 ## Conclusion
 ## Project Structure
 - **Doku/**: Contains documentation
-  - **Screenshots/**: Contains Screenshots used in README
+  - **Screenshots/**: Contains Screenshots used in README.
+  - **Visuals/**: Contains Other Visual documentation.
+    - **Inspiration/**: Inspiration video by Lubalin. 
 - **Finetuning/**: Contains files from the different finetuned models.
   - **Applio_Output/**: Generated inference files.
   - **MusicGen_Output/**: Contains music continuation file.
