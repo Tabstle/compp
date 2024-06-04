@@ -4,8 +4,7 @@
 
 The main goal of this project was to generate a song where the lyrics, derived from text conversations, are sung in the distinctive style of System of a Down. This process involved several stages, from exploring existing AI tools and generating songs with lyrics as a prompt to finetuning models to suit the specific music style of the band.
 
-[Inspirational Video](Inspiration.mp4)
-This video by Lubalin called "Internet Drama - part 1" served as inspiration for the project.
+A video by Lubalin called ["Internet Drama - part 1"](https://www.youtube.com/watch?v=OLmun1JEIw0) served as inspiration for the project.
 
 ### 1. Exploring Existing AI Tools
 
