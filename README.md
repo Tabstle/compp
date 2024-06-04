@@ -44,9 +44,6 @@ The band's album Toxicity was used for both the vocal and instrumental training 
 </div>
 
 
-
-
-
 ### 5. Reconstructing the Final Song
 
 The only thing left to do now was to put the different parts back together with [Reaper](https://www.reaper.fm/), a music editing software. The instrumental track was placed on one track and for the vocals I generated the vocal track with both models and then stitched together the screaming parts and singing parts from the correct outputs.
@@ -54,7 +51,6 @@ The only thing left to do now was to put the different parts back together with 
 ## Results
 The generated music tracks can be found in the `Results/` directory.
 
-## Conclusion
 ## Project Structure
 - **Doku/**: Contains documentation
   - **Screenshots/**: Contains Screenshots used in README.
