@@ -14,13 +14,6 @@ Initially, I researched various AI tools to understand what was available for ta
 
 To overcome these challenges, I opted to use [Suno](https://suno.com/) for generating music. This tool allowed me to convert text conversations directly into music, ensuring that the vocals matched the speed, harmony, and accentuation of the instrumental. The generated song included both vocals and instrumental parts. However, other than belonging to the Metal genre, they had nothing to do with the iconic sound of System of a Down. In order to achieve this I would have to tweak both the instrumental and the vocals.
 
-Generated audio:
-<audio controls>
-  <source src="Suno/Internet Drama.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-
 ### 3. Separating Vocals and Instrumental 
 
 In order to use all the open-source tools I found during my research, I had to split the vocals and instrumental from the generated song and the songs used for training data. I utilized another AI tool called [UVR5](https://github.com/Anjok07/ultimatevocalremovergui/releases/tag/v5.6) to separate the songs into their vocal and instrumental components. This allowed me to create the input and the datasets for the models I finetuned in another step.
@@ -39,13 +32,13 @@ The only thing left to do now was to put the different parts back together with 
 
 ## Conclusion
 ## Project Structure
-- **data/**: Contains the datasets used for training.
-  - **vocals/**: Vocal tracks separated into screaming and singing.
-  - **instrumental/**: Instrumental tracks.
-- **notebooks/**: Jupyter notebooks used for various stages of the project.
-- **results/**: Generated music and logs from the training process.
-- **scripts/**: Python scripts for data downloading, preprocessing, training, and music generation.
-- **assets/**: Images and other assets used in the documentation.
+- **Doku/**: Contains documentation
+  - **Screenshots/**: Contains Screenshots used in README
+- **Finetuning/**: Contains files from the different finetuned models.
+  - **Applio_Output/**: Generated inference files.
+  - **MusicGen_Output/**: Contains music continuation file.
+- **Results/**: Final project output.
+- **Suno/**: Initially generated songs.
 
 ## Steps
 
@@ -60,7 +53,7 @@ The only thing left to do now was to put the different parts back together with 
 
 ### Music Generation
 1. **Generate Base Track**: Generated a base track using Suno.
-2. **Generate Vocals**: Used voice track from Suno to generate vocals with the fine tuned Applio voice models.
+2. **Generate Vocals**: Used voice track from Suno to generate vocals with the fine-tuned Applio voice models.
 3. **Combine Tracks**: Edited the generated vocals and instrumental together in Reaper to match the beat.
 
 ## Results
